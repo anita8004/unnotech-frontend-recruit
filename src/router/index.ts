@@ -20,6 +20,18 @@ const routes = [
     component: () => import("@/pages/Book.vue")
   },
   {
+    path: "/books/add",
+    name: routesName.book,
+    props: true,
+    component: () => import("@/pages/Book.vue")
+  },
+  {
+    path: "/books/edit/:id",
+    name: routesName.book,
+    props: true,
+    component: () => import("@/pages/Book.vue")
+  },
+  {
     path: "/",
     redirect: () => ({
       path: "/books",

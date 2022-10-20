@@ -12,20 +12,15 @@
   </main>
 </template>
 
-<script setup lang="ts">
+<script async setup lang="ts">
 import Header from '@/components/Header.vue';
-import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import requestAPIs from '../request';
+import { useBooksStore } from '../stores/books';
 
-const props = defineProps({
-  id: Number
-})
-
+const store = useBooksStore();
 const route = useRoute();
-const bookInfo = ref<BookType>();
-const result = await requestAPIs.getBook(Number(route.params.id));
-bookInfo.value = result.data;
+store.getCurrent(Number(route.params.id));
+const bookInfo = store.currentBook;
 </script>
 
 <style lang="scss" scoped>
