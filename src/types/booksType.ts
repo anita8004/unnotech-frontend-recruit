@@ -8,7 +8,7 @@ type BooksType = {
 
 type BookType = BooksType
 
-type AddBookPayloadType = {
+type BookPayloadType = {
   author: string;
   description: string;
   title: string;

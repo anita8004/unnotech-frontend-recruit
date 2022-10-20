@@ -35,10 +35,10 @@ const requestAPIs = {
   async getBook(id: number): Promise<AxiosResponse<BookType>> {
     return await service.get(`/books/${id}`);
   },
-  async editBook(data: any) {
-    return await service.patch("/books", data);
+  async editBook(id: number, data: BookPayloadType) {
+    return await service.patch(`/books/${id}`, data);
   },
-  async addBook(data: any) {
+  async addBook(data: BookPayloadType) {
     return await service.post("/books", data);
   },
   async delBook(id: number) {

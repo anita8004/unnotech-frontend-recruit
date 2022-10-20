@@ -2,7 +2,14 @@
   <div class="wrapper">
     <Header title="新增書籍" showBack/>
     <main>
-      <BookForm formType="add"/>
+      <Suspense>
+        <template #fallback>
+          <Loading/>
+        </template>
+        <template #default>
+          <BookForm formType="add"/>
+        </template>
+      </Suspense>
     </main>
   </div>
 </template>
@@ -10,6 +17,7 @@
 <script setup lang="ts">
 import Header from '@/components/Header.vue';
 import BookForm from '@/components/form/BookForm.vue';
+import Loading from '@/components/Loading.vue';
 </script>
 
 <style lang="scss" scoped>

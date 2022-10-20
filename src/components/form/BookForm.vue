@@ -3,16 +3,21 @@
     class="book-form"
     :schema="formSchema"
     :formType="formType"
+    :initialValues="initialValues"
     @submit="submitHandler"
   />
 </template>
 
 <script setup lang="ts">
 import DynamicForm from '@/components/form/DynamicForm.vue';
-import { PropType } from 'vue';
+import { computed, PropType } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import * as Yup from 'yup';
+import { routesName } from '../../router';
 import { useBooksStore } from '../../stores/books';
 
+const route = useRoute();
+const router = useRouter();
 const store = useBooksStore();
 
 const props = defineProps({
@@ -45,12 +50,31 @@ const formSchema = {
   ],
 };
 
-const submitHandler = async (values: AddBookPayloadType) => {
+if (props.formType === "edit" && route.params.id) {
+  await store.getCurrent(Number(route.params.id));
+}
+
+const bookInfo = computed(() => store.currentBook);
+const initialValues = computed(() => {
+  if (props.formType === "add") return {};
+  return {
+    title: store.currentBook.title,
+    author: store.currentBook.author,
+    description: store.currentBook.description
+  };
+});
+
+const submitHandler = async (values: BookPayloadType) => {
   switch(props.formType) {
     case "add":
       await store.addBook(values);
+      router.replace({name: routesName.books});
       break;
     case "edit":
+      await store.editBook(bookInfo.value.id, values);
+      await store.fetchBook(bookInfo.value.id);
+      router.replace({name: routesName.book, params: {id: bookInfo.value.id}});
+      break;
     default:
       alert(JSON.stringify(values, null, 2));
   }

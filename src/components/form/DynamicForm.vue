@@ -1,5 +1,9 @@
 <template>
-  <Form class="form`" @submit="onSubmit">
+  <Form 
+    class="form"
+    :initial-values="initialValues"
+    @submit="onSubmit"
+  >
     <div
       class="form-group"
       v-for="{ as, name, label, children, ...attrs } in schema.fields"
@@ -32,6 +36,9 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  initialValues: {
+    type: Object,
+  }
 })
 
 const emit = defineEmits<{
@@ -53,7 +60,7 @@ const onSubmit = (values: Object) => {
     @apply block mb-0.5;
   }
   &-field {
-    @apply w-full rounded-md px-1;
+    @apply w-full rounded-md px-2;
     min-height: 2rem;
   }
 }
