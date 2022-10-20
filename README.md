@@ -17,10 +17,10 @@ npm run dev
 
 ### pages
 
-Books.vue 書籍列表
-Book.vue 書籍內容
-AddBook.vue 新增書籍
-EditBook.vue 修改書籍
+- Books.vue 書籍列表
+- Book.vue 書籍內容
+- AddBook.vue 新增書籍
+- EditBook.vue 修改書籍
 
 ### 專案簡介
 顯示書籍列表，可新增修改書籍，點擊書籍可查看書籍內容
@@ -49,9 +49,9 @@ const props = defineProps({
 ```
 另外這點算是我覺得在這個專案中比較麻煩的地方：
 在書籍列表進入內容頁，需要再fetch一次才能取得書籍資料
-這邊我使用pinia去記錄所有的書籍資料，使進入內容頁後可以直接根據id去查詢書籍內容並顯示，而不需要再fetch一次資料，不過重新整理後還是會再fetch一次
+這邊我使用pinia去記錄所有的書籍資料，使進入內容頁後可以直接根據id去查詢書籍內容並顯示，而不需要再fetch一次資料，不過重新整理後還是會需要再fetch一次資料
 應該要再加上localStorage輔助儲存資料會更好，這是下一步的目標
 
 ## 待實作清單
-[] localStorage, 解決重新整理後store資料消失的問題
-[] 優化新增修改成功後的提醒彈窗
+- [ ] localStorage, 解決重新整理後store資料消失的問題
+- [ ] 優化新增修改成功後的提醒彈窗
