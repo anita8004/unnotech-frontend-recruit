@@ -4,8 +4,9 @@
       class="book-item"
       v-for="book in store.books"
       :key="book.id"
+      @click="$router.push({name: routesName.book, params: { id: book.id }})"
     >
-      <div class="book-item__cover">
+      <!-- <div class="book-item__cover">
         <span 
           className="material-icons book-item__read-more"
           @click="$router.push({name: routesName.book, params: { id: book.id }})"
@@ -14,7 +15,7 @@
           className="material-icons book-item__delete"
           @click="delHandler(book.id)"
         >delete</span>
-      </div>
+      </div> -->
       <h3 class="book-item__title">{{book.title}}</h3>
       <h4 class="book-item__author">Author: {{book.author}}</h4>
       <p class="book-item__description">{{book.description}}</p>

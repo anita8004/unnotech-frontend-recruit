@@ -23,8 +23,10 @@
       </Field>
       <ErrorMessage :name="name" />
     </div>
-    <button class="mr-2" type="reset">取消</button>
-    <button type="submit">送出</button>
+    <div class="text-center">
+      <button class="mr-2" type="reset">取消</button>
+      <button type="submit">送出</button>
+    </div>
   </Form>
 </template>
 
