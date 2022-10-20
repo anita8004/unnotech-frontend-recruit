@@ -23,5 +23,20 @@ export const useBooksStore = defineStore('books', {
         this.fetchBook(bookId)
       }
     },
+    async addBook(payload: AddBookPayloadType) {
+      try {
+        const result = await requestAPIs.addBook(payload);
+      } catch(err) {}
+    },
+    async editBook(bookId: number) {
+      try {
+        const result = await requestAPIs.editBook(bookId);
+      } catch(err) {}
+    },
+    async delBook(bookId: number) {
+      try {
+        const result = await requestAPIs.delBook(bookId);
+      } catch(err) {}
+    },
   }
 })

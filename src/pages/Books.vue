@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <Header title="Books">
-      <button>
+      <button @click="$router.push({name: routesName.addBook})">
         <span className="material-icons">add</span>
       </button>
     </Header>
@@ -22,6 +22,7 @@
 import Header from '@/components/Header.vue';
 import BookList from '@/components/BookList.vue';
 import Loading from '@/components/Loading.vue';
+import { routesName } from "../router";
 </script>
 
 <style lang="scss" scoped>

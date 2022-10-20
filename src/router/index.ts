@@ -21,15 +21,15 @@ const routes = [
   },
   {
     path: "/books/add",
-    name: routesName.book,
+    name: routesName.addBook,
     props: true,
-    component: () => import("@/pages/Book.vue")
+    component: () => import("@/pages/AddBook.vue")
   },
   {
     path: "/books/edit/:id",
-    name: routesName.book,
+    name: routesName.editBook,
     props: true,
-    component: () => import("@/pages/Book.vue")
+    component: () => import("@/pages/EditBook.vue")
   },
   {
     path: "/",

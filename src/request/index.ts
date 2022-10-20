@@ -13,6 +13,16 @@ service.interceptors.request.use(function (config) {
 });
 
 service.interceptors.response.use(function (response) {
+  console.log("Method: ", response.config.method)
+  switch(response.config.method) {
+    case "post":
+    case "put":
+    case "delete":
+    case "patch":
+      alert("Success!");
+      break;
+    default:
+  }
   return response;
 }, function (error) {
   return Promise.reject(error);
