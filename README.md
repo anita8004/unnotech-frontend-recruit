@@ -55,4 +55,4 @@ const props = defineProps({
 ## 待實作清單
 - [ ] localStorage, 解決重新整理後store資料消失的問題
 - [ ] 優化新增修改成功後的提醒彈窗
-- [ ] 製作刪除功能
+- [x] 製作刪除功能
