@@ -1,4 +1,5 @@
 import axios, { AxiosResponse } from 'axios'
+import { notify } from 'notiwind'
 
 const service = axios.create({
   baseURL: import.meta.env.VITE_APP_BASE_API,
@@ -19,7 +20,11 @@ service.interceptors.response.use(function (response) {
     case "put":
     case "delete":
     case "patch":
-      alert("Success!");
+      notify({
+        group: "alert",
+        title: "Success",
+        text: ""
+      }, 4000)
       break;
     default:
   }
