@@ -53,6 +53,6 @@ const props = defineProps({
 應該要再加上localStorage輔助儲存資料會更好，這是下一步的目標
 
 ## 待實作清單
-- [ ] localStorage, 解決重新整理後store資料消失的問題
+- [x] localStorage, 解決重新整理後store資料消失的問題
 - [x] 優化新增修改成功後的提醒彈窗
 - [x] 製作刪除功能
