@@ -76,7 +76,6 @@ const submitHandler = async (values: BookPayloadType) => {
       router.replace({name: routesName.book, params: {id: bookInfo.value.id}});
       break;
     default:
-      alert(JSON.stringify(values, null, 2));
   }
 }
 
